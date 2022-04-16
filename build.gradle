@@ -1,0 +1,47 @@
+plugins {
+    id "java"
+    id "application"
+}
+
+group = "cz.tefek"
+version = "0.1"
+
+wrapper {
+    distributionType = Wrapper.DistributionType.ALL
+    gradleVersion = "7.4.2"
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+
+    maven {
+        name = "Vega"
+        url = uri("https://vega.botdiril.com/")
+    }
+}
+
+application {
+    mainClass.set("org.plutoengine.test.Main")
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+tasks.withType(JavaExec) {
+    jvmArgs = [
+        "-Dcz.tefek.pluto.debug=true",
+        "-Dorg.lwjgl.util.Debug=true"
+    ]
+}
+
+dependencies {
+    implementation group: "org.plutoengine", name: "plutocore", version: "22.1.0.0-alpha.1"
+
+    // Optional extensions:
+
+    // implementation group: "org.plutoengine", name: "plutogameobject", version: "22.1.0.0-alpha.1"
+    // implementation group: "org.plutoengine", name: "plutouss2", version: "22.1.0.0-alpha.1"
+}
