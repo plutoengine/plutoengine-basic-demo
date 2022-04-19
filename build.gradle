@@ -38,10 +38,10 @@ tasks.withType(JavaExec) {
 }
 
 dependencies {
-    implementation group: "org.plutoengine", name: "plutocore", version: "22.2.0.0-alpha.0"
+    implementation group: "org.plutoengine", name: "plutocore", version: "22.2.0.0-alpha.1"
 
     // Optional extensions:
 
-    // implementation group: "org.plutoengine", name: "plutogameobject", version: "22.2.0.0-alpha.0"
-    // implementation group: "org.plutoengine", name: "plutouss2", version: "22.2.0.0-alpha.0"
+    // implementation group: "org.plutoengine", name: "plutogameobject", version: "22.2.0.0-alpha.1"
+    // implementation group: "org.plutoengine", name: "plutouss2", version: "22.2.0.0-alpha.1"
 }

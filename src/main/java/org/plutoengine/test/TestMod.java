@@ -1,7 +1,7 @@
 package org.plutoengine.test;
 
 import org.plutoengine.graphics.PlutoGUIMod;
-import org.plutoengine.graphics.gui.stbttf.STBTTFont;
+import org.plutoengine.graphics.gui.font.stbttf.STBTTFont;
 import org.plutoengine.graphics.texture.MagFilter;
 import org.plutoengine.graphics.texture.MinFilter;
 import org.plutoengine.graphics.texture.WrapMode;

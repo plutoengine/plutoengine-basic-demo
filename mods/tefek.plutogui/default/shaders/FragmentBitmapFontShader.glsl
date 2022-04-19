@@ -1,10 +1,9 @@
 #version 330 core
 
 in vec2 uvCoordinates;
-flat in int atlasPage;
 in vec2 paintUVCoordinates;
 
-uniform sampler2DArray textureSampler;
+uniform sampler2DRect textureSampler;
 
 uniform int paintType;
 uniform vec4 paintColor;
@@ -13,8 +12,6 @@ uniform int paintGradientStopCount;
 uniform vec4[16] paintGradientColors;
 uniform float[16] paintGradientPositions;
 uniform vec2[2] paintGradientEnds;
-
-uniform float pxScale;
 
 out vec4 out_Color;
 
@@ -59,12 +56,6 @@ vec4 gradientColor(void)
 
 void main(void)
 {
-    vec3 texCoords = vec3(uvCoordinates, atlasPage);
-
-    float threshold = 180.0 / 255.0 - 5.0 / pow(pxScale, 1.6); // Also help small text be readable
-
-    float signedDist = texture(textureSampler, texCoords).r - threshold;
-
     vec4 col;
 
     switch (paintType)
@@ -78,7 +69,7 @@ void main(void)
             break;
     }
 
-    col.a *= smoothstep(0, 2.4 / pxScale, signedDist);
+    col.rgba *= texture(textureSampler, uvCoordinates);
 
     out_Color = col;
 }

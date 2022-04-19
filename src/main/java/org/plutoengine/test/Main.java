@@ -54,6 +54,6 @@ public class Main extends PlutoApplication
         style.setSize(25);
 
         ImmediateFontRenderer.drawString(this.display.getWidth() / 2.0f, this.display.getHeight() / 2.0f + 20.0f,
-            "Start by editing the `src/main/java/org.pluengine.test.Main` class.", TestMod.font, style);
+            "Start by editing the `src/main/java/" + Main.class.getCanonicalName() + "` class.", TestMod.font, style);
     }
 }
